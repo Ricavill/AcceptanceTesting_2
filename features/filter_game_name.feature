@@ -13,11 +13,11 @@ Feature: Search games by name
       Given the user enters the name: The
       When the user search games by name
       Then 2 games will match
-      And the names of these games are
+      Then the names of these games are
       | NAME                       |
       | The Witcher 3: Wild Hunt   |
       | The Last of Us             |
-      And the following message is displayed: 2 games were found containing the word: The
+      Then the following message is displayed: 2 games were found containing the word: The
 
 
   @gamesByName
@@ -31,4 +31,4 @@ Feature: Search games by name
       Given the user enters the name: 'xyz'
       When the user search games by name
       Then 0 games will match
-      And the following message is displayed: No game with the specified name was found.
+      Then the following message is displayed: No game with the specified name was found.
