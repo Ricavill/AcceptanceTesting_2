@@ -31,6 +31,16 @@ def step_impl(context, criteria):
 		print(result)
 		context.result = result
 		context.message = message
+	if (criteria == 'rating'):
+		result, message,error = get_game_rating(context.games, context.rating)
+		print(result)
+		context.result = result
+		context.message = message
+	if (criteria == 'developer'):
+		result, message = get_game_developer(context.games, context.developer)
+		print(result)
+		context.result = result
+		context.message = message
 
 
 @then("{total} games will match")
@@ -55,3 +65,13 @@ def step_impl(context, message):
 	print(message)
 	print(context.message)
 	assert context.message == message
+
+@given('a list of ratings {[rating]}')
+def step_impl(context, rating):
+	context.rating=rating
+	print(rating)
+
+@given('a game developer: {developer}')
+def step_impl(context, developer):
+	context.developer=developer
+	print(developer)
